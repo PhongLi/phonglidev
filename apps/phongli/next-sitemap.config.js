@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.enji.dev',
+  siteUrl: '',
   priority: 0.6,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
@@ -22,10 +22,6 @@ module.exports = {
     }
 
     if (path === '/projects') {
-      return defaultValue(0.9);
-    }
-
-    if (path === '/today-i-learned') {
       return defaultValue(0.9);
     }
 
