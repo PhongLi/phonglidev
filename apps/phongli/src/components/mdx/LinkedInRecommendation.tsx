@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { LinkedlnColorIcon } from '@/components/Icons';
 
@@ -9,6 +10,7 @@ interface Recommendation {
   role: string;
   date: string;
   feedback: string;
+  url: string;
 }
 
 interface LinkedInRecommendationProps {
@@ -19,25 +21,25 @@ export default function LinkedInRecommendation({
   recommendations,
 }: LinkedInRecommendationProps) {
   return (
-    <div className={clsx('min-h-screen bg-gray-50 py-10', 'dark:bg-slate-900')}>
-      <div
-        className={clsx(
-          'mx-auto max-w-4xl space-y-6 rounded-lg bg-white p-8 shadow-lg',
-          'dark:bg-slate-800'
-        )}
-      >
-        <div className={clsx('flex flex-row items-center gap-4')}>
-          <LinkedlnColorIcon className={clsx('h-12 w-12')} />
-          <h2
-            className={clsx(
-              'text-xl font-semibold text-gray-800',
-              'dark:text-white'
-            )}
-          >
-            Recommendations
-          </h2>
-        </div>
-        {recommendations.map((rec) => (
+    <div
+      className={clsx(
+        'mx-auto max-w-4xl space-y-6 rounded-lg bg-white p-8 shadow-lg',
+        'dark:bg-[#161e31]'
+      )}
+    >
+      <div className={clsx('mb-4 flex flex-row items-center gap-4')}>
+        <LinkedlnColorIcon className={clsx('h-12 w-12')} />
+        <h2
+          className={clsx(
+            'text-xl font-semibold text-gray-800',
+            'dark:text-white'
+          )}
+        >
+          Recommendations
+        </h2>
+      </div>
+      {recommendations.map((rec) => (
+        <Link href={rec.url} aria-label="linkedln profile" target="_blank">
           <div
             key={rec.author + rec.date}
             className={clsx(
@@ -86,8 +88,8 @@ export default function LinkedInRecommendation({
               {rec.feedback}
             </div>
           </div>
-        ))}
-      </div>
+        </Link>
+      ))}
     </div>
   );
 }
