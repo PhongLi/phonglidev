@@ -71,10 +71,10 @@ function IndexContents() {
   return (
     <>
       <Header />
-      <div className={clsx('hidden', 'lg:-mt-16 lg:mb-24 lg:block')}>
+      <div className={clsx('lg:-mt-16 lg:mb-24')}>
         <FeaturedCardSection />
       </div>
-      <div className={clsx('-mt-12 mb-12', 'md:mb-24 md:mt-0')}>
+      <div className={clsx('mt-20')}>
         <QuoteSection />
       </div>
     </>
