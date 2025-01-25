@@ -151,7 +151,7 @@ export function PostOgImage({
           src="https://github.com/PhongLi.png?size=48"
           style={styles.authorAvatar}
         />
-        <div style={styles.authorName}>@enjidev</div>
+        <div style={styles.authorName}>@phongli</div>
 
         {date && (
           <>
@@ -217,7 +217,7 @@ export function PageOgImage({
           src="https://github.com/PhongLi.png?size=48"
           style={styles.authorAvatar}
         />
-        <div style={styles.authorName}>@enjidev</div>
+        <div style={styles.authorName}>@phongli</div>
       </div>
       <div
         style={

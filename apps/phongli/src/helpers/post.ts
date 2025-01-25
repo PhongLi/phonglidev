@@ -96,7 +96,7 @@ export const getPostStructuredData = ({
         '@type': 'Person',
         name: 'PhongLi',
         jobTitle: 'Front-End Developer',
-        url: 'https://www.enji.dev/about',
+        url: 'https://phongli.is-a.dev/about',
       },
     ],
   });
