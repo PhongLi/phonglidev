@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 
 import { SkeletonMd } from '@/components/wireframes/Skeletons';
 
@@ -8,9 +9,10 @@ interface BrowserTabProps {
   icon: ReactNode;
   title: string;
   isActive: boolean;
+  url: string;
 }
 
-function BrowserTab({ icon, title, isActive }: BrowserTabProps) {
+function BrowserTab({ icon, title, isActive, url }: BrowserTabProps) {
   return (
     <div
       className={clsx('flex h-6 items-center truncate rounded-lg', [
@@ -25,7 +27,16 @@ function BrowserTab({ icon, title, isActive }: BrowserTabProps) {
     >
       <div className={clsx('flex w-full gap-2 px-2 text-xs')}>
         {icon}
-        <div className={clsx('flex-1 truncate')}>{title}</div>
+        <div className={clsx('flex-1 cursor-pointer truncate')}>
+          <a
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:underline"
+          >
+            {title}
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -47,7 +58,7 @@ function AppWindow({
     <div
       role="presentation"
       className={clsx(
-        'border-divider-light pointer-events-none flex h-full w-full select-none flex-col overflow-hidden rounded-xl border bg-white',
+        'border-divider-light flex h-full w-full select-none flex-col overflow-hidden rounded-xl border bg-white',
         'dark:border-divider-dark dark:bg-[#0c1222]'
       )}
     >
@@ -89,12 +100,13 @@ function AppWindow({
             </div>
             {isWithBrowserTabs && (
               <div className={clsx('mt-2 flex gap-2 px-3')}>
-                {browserTabs.map(({ icon, title, isActive }) => (
+                {browserTabs.map(({ icon, title, isActive, url }) => (
                   <BrowserTab
                     key={title}
                     icon={icon}
                     title={title}
                     isActive={isActive}
+                    url={url}
                   />
                 ))}
               </div>
@@ -102,7 +114,10 @@ function AppWindow({
           </>
         )}
       </div>
-      <div className={clsx('flex-1 overflow-hidden')}>{children}</div>
+      <div className={clsx('relative flex-1 overflow-hidden')}>{children}</div>
+      {/* <div className={clsx('bottom-0 h-20 w-full dark:bg-[#0c1222]')}>
+        <p></p>
+      </div> */}
     </div>
   );
 }
