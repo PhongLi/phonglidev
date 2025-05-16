@@ -20,9 +20,15 @@ module.exports = {
           light: colors.slate[200],
           dark: colors.slate[800],
         },
+        gray: {
+          375: colors.gray[400],
+        },
       },
       animation: {
         'bounce-x': 'bounce-x 1s infinite',
+        'fade-in': 'fade-in 0.5s ease-out forwards',
+        'fade-in-delay-1': 'fade-in 0.5s ease-out 0.2s forwards',
+        'fade-in-delay-2': 'fade-in 0.5s ease-out 0.4s forwards',
       },
       keyframes: {
         'bounce-x': {
@@ -33,6 +39,14 @@ module.exports = {
           '50%': {
             transform: 'translateX(0)',
             animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
+          },
+        },
+        'fade-in': {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
           },
         },
       },
